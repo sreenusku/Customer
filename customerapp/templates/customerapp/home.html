@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+<h1>Home Page</h1>
+<table style="width:80%">
+    <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>text-format</strong></td>
+        <td><strong>pdf-format</strong></td>
+        <td><strong>other-format</strong></td>
+    </tr>
+     <tr>
+        {% for customer in  customers %}
+        <td>{{customer.name}}</td>
+        <td><a href = "{% url 'plain-text' customer.id %}">Text</a></td>
+        <td><a href = "{% url 'invoice' customer.id %}">Pdf</a></td>
+         <td><a href="" >Other-format</a></td>
+
+     </tr>
+        {%endfor%}
+</table>
+<br><br><br><br><br><br>
+<div>
+    <a href="{% url 'create' %}">Create Customer</a>
+</div>
+
+</body>
+</html>
